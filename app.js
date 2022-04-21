@@ -1,38 +1,48 @@
-const fs = require('fs');
+const inquirer = require('inquirer');
 
-const generatePage = require('./src/page-template.js');
+inquirer
+    .prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your name?'
+        }
+    ])
+    .then(answers => console.log(answers));
 
-const profileDataArgs = process.argv.slice(2);
+// const fs = require('fs');
 
-const [name, github] = profileDataArgs;
+// const generatePage = require('./src/page-template.js');
 
-// const printProfileData = profileDataArr => {
+// const pageHTML = generatePage(name, gituhub);
 
-//     //This...
-//     for(let i = 0; i < profileDataArr.length; i++){
-//         console.log(profileDataArr[i])
-//     }
+// // const printProfileData = profileDataArr => {
 
-//     console.log('=========');
+// //     //This...
+// //     for(let i = 0; i < profileDataArr.length; i++){
+// //         console.log(profileDataArr[i])
+// //     }
 
-//     //...is the same as this
-//     profileDataArr.forEach(profileItem => console.log(profileItem))
-//     //using an arrow function, we can avoid using the function keyword, parentheses around the function parameter, and the curly braces used to wrap a function; we can keep simpler tasks on one line of code and make it more concise.
+// //     console.log('=========');
+
+// //     //...is the same as this
+// //     profileDataArr.forEach(profileItem => console.log(profileItem))
+// //     //using an arrow function, we can avoid using the function keyword, parentheses around the function parameter, and the curly braces used to wrap a function; we can keep simpler tasks on one line of code and make it more concise.
 
     
-// }
-// printProfileData(profileDataArgs)
+// // }
+// // printProfileData(profileDataArgs)
 
-//interpolated the variables passed into the function as the text used in the string
-//template literals allow us to do multi-line text easier than regular strings
-// const generatePage = (userName, githubName) => `Name ${userName}, Github: ${githubName}`;
-
-
+// //interpolated the variables passed into the function as the text used in the string
+// //template literals allow us to do multi-line text easier than regular strings
+// // const generatePage = (userName, githubName) => `Name ${userName}, Github: ${githubName}`;
 
 
-fs.writeFile('./index.html', generatePage(name, github), err => {
+
+
+// fs.writeFile('./index.html', pageHTML, err => {
     
-    if (err) throw new Error(err);
+//     if (err) throw err;
 
-    console.log('Portfolio complete! Check out index.html to see the output!')
-});
+//     console.log('Portfolio complete! Check out index.html to see the output!')
+// });
